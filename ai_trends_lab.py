@@ -7,17 +7,22 @@ Original file is located at
     https://colab.research.google.com/drive/1sqLYIR1oW_8MJMHZOK6-sElJ3EJK7fvd
 """
 
-import pandas as pd
+
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import seaborn as sns
+import pandas as pd
+from sklearn.compose import ColumnTransformer
+# Add other necessary imports
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+import seaborn as sns  
 from sklearn.metrics import accuracy_score, classification_report
-
 from sklearn.preprocessing import OneHotEncoder
+
+
 
 df=pd.read_csv("txns.txt",header=None)
 df.head()
