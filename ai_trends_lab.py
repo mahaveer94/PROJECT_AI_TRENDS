@@ -63,7 +63,7 @@ df['year'] = df['txndate'].dt.year
 df.drop('txndate', axis=1, inplace=True)
 
 numeric_cols = df.select_dtypes(include=['int64', 'float64']).columns
-
+categorical_cols = df.select_dtypes(include=['object', 'category']).columns
 preprocessor = ColumnTransformer(
     transformers=[
         ('num', StandardScaler(), numeric_cols),
