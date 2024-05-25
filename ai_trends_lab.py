@@ -40,16 +40,16 @@ import matplotlib.pyplot as plt
 
 df.hist(figsize=(10, 8))
 plt.tight_layout()
-plt.show()
+plt.savefig('histogram.png')
 
 # pair plots to visualize relationships between numerical features.
 import seaborn as sns
 sns.pairplot(df)
-plt.show()
+plt.savefig('pairplot.png')
 
 # bar plots or count plots to visualize the distribution of categorical variables.
 sns.countplot(x='spendby', data=df)
-plt.show()
+plt.savefig('countplot.png')
 
 df.isnull().sum()
 
@@ -61,6 +61,8 @@ df['year'] = df['txndate'].dt.year
 
 # Drop original 'txndate' column
 df.drop('txndate', axis=1, inplace=True)
+
+numeric_cols = df.select_dtypes(include=['int64', 'float64']).columns
 
 preprocessor = ColumnTransformer(
     transformers=[
