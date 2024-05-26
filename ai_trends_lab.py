@@ -100,10 +100,10 @@ from sklearn.tree import DecisionTreeClassifier
 model = DecisionTreeClassifier(random_state=42)
 model.fit(X_train, y_train)
 
-# Predict on the test set
+# Predict on the test dataset:-
 y_pred = model.predict(X_test)
 
-# Evaluate the model
+# Evaluate the model:-
 accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
 print("Classification Report:\n", classification_report(y_test, y_pred))
